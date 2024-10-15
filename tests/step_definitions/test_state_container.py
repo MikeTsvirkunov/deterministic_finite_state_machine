@@ -7,7 +7,6 @@ from unittest.mock import Mock
 
 from src.interfaces.state_interface import StateInterface
 from src.state_containers.state_container import StateContainer
-from tests.supports.getters import get_table
 
 
 scenarios("../features/state_container.feature")  
