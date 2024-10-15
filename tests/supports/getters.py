@@ -13,4 +13,4 @@ def get_table(context, schema) -> pl.DataFrame:
 
 
 def parse_bool(b: str) -> bool:
-    return b.lower == 'true'
+    return b.lower() == 'true'

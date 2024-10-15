@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 
 
-class IsTaskCompleteInterface(ABCMeta):
+class IsTaskCompleteInterface(meta=ABCMeta):
     
     @property
     @abstractmethod

@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABCMeta
 
-class StateInterface(ABCMeta):
+class StateInterface(metaclass=ABCMeta):
 
     @abstractmethod
     def __hash__(self) -> int:

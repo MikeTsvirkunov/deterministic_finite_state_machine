@@ -1,9 +1,9 @@
 from abc import ABCMeta, abstractmethod
 
 
-class StartStageHavingInterface(meta=ABCMeta):
+class CurrentStageHavingInterface(metaclass=ABCMeta):
     
     @property
     @abstractmethod
-    def start_stage() -> int:
+    def current_stage() -> int:
         pass

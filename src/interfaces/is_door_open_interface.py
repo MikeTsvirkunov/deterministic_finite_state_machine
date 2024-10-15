@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 
 
-class IsDoorOpenInterface(ABCMeta):
+class IsDoorOpenInterface(metaclass=ABCMeta):
     
     @property
     @abstractmethod

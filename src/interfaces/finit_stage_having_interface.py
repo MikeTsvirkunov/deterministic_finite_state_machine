@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 
 
-class FinitStageHavingInterface(ABCMeta):
+class FinitStageHavingInterface(meta=ABCMeta):
     
     @property
     @abstractmethod
