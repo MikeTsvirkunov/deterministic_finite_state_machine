@@ -15,6 +15,8 @@ pytest-mock = "^3.14.0"
 pytest-bdd = "^7.3.0"
 mock = "^5.1.0"
 jax = "^0.4.33"
+behave = "^1.2.6"
+polars = "^1.9.0"
 
 
 [build-system]
@@ -29,4 +31,5 @@ testpaths = [
     "tests",
     "src"
 ]
+pythonpath = "src"
 bdd_features_base_dir = "tests/features"
