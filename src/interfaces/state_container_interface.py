@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABC
-
 from interfaces.state_interface import StateInterface
+
 
 class StateContainerInterface(ABC):
     @abstractmethod
