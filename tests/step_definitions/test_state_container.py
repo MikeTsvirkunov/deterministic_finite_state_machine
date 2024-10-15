@@ -6,7 +6,7 @@ from pytest_bdd import given, scenarios, when, then
 from unittest.mock import Mock
 
 from src.interfaces.state_interface import StateInterface
-from src.states.state_container import StateContainer
+from src.state_containers.state_container import StateContainer
 from tests.supports.getters import get_table
 
 
