@@ -10,4 +10,3 @@ def get_table(context, schema) -> pl.DataFrame:
     d = context.table
     d = [[i for i in r] for r in d]
     return pl.DataFrame(d, schema=schema, orient='row')
-

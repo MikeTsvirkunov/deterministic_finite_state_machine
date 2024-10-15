@@ -55,5 +55,3 @@ def gotted_state(state_container, state_1):
 def get_num_of_stages(gotted_state, state_2, state_3):
     assert gotted_state == state_2, f"Gotted state is {gotted_state} and not equal to state_2 that is {state_2}"
     assert gotted_state != state_3, f"Gotted state is {gotted_state} and equal to state_3 that is {state_3}"
-
-    
