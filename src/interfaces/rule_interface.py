@@ -4,5 +4,5 @@ from typing import Any
 
 class RuleInterface(ABC):
     @abstractmethod
-    def __call__(self, data: Any) -> bool:
+    def __call__(self, *args, **kwds) -> bool:
         pass
