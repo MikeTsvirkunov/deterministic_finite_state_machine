@@ -1,9 +1,9 @@
 from abc import ABCMeta, abstractmethod
 
 
-class StartStageHavingInterface(metaclass=ABCMeta):
+class RequestQueueHavingInterface(metaclass=ABCMeta):
     
     @property
     @abstractmethod
-    def start_stage() -> int:
+    def request_queue() -> int:
         pass
