@@ -7,7 +7,7 @@ Feature: is moving by direction checker
         Then Have been gotted <expected_result> resulte.
 
         Examples:
-        | elevator_direction | task_direction | expected_result |
+        | elevator_direction |  task_direction   | expected_result |
         |        up          |        up         |       True      |
         |       down         |       down        |       True      |
         |        up          |       down        |       False     |
