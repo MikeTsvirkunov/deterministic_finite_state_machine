@@ -35,3 +35,8 @@ testpaths = [
 ]
 pythonpath = "src"
 bdd_features_base_dir = "tests/features"
+
+# [tool.coverage.report]
+# exclude_also = [
+
+# ]

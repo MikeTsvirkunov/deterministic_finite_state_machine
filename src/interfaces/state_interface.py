@@ -6,4 +6,9 @@ class StateInterface(metaclass=ABCMeta):
     def __hash__(self) -> int:
         pass
 
+    
+    @abstractmethod
+    def __eq__(self, other) -> int:
+        pass
+
 # шпрингер Зверев Иван
