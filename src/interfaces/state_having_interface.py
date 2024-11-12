@@ -1,8 +1,8 @@
 from abc import ABCMeta, abstractmethod
 
 
-class StageHavingInterface(metaclass=ABCMeta):
+class StateHavingInterface(metaclass=ABCMeta):
     @abstractmethod
     @property
-    def stage(self) -> int:
+    def state(self) -> int:
         pass
