@@ -10,7 +10,7 @@ from dfsm.initiators import rules_providing, validators_providing
 from dfsm.interfaces import BranchStateInterface, StateInterface, StateMapInterface
 from dfsm.state_maps import DefaultStateMap
 from elevator.additional_types import DoorsStates, ElevatorCommands
-from elevator.branch_rule import BranchIsUniqueForStatesMap, IsClosingDoorsCorrect, IsDoorsClosed, IsMovingDownCorrect, IsMovingFromAvailableStage, IsMovingOnOnlyOneStage, IsMovingToAvailableStage, IsMovingUpCorrect, IsMovingWithClosedDoors, IsOpeningDoorsCorrect, MultyRule
+from elevator.branch_rule import BranchIsUniqueForStatesMap, IsClosingDoorsCorrect, IsMovingDownCorrect, IsMovingFromAvailableStage, IsMovingToAvailableStage, IsMovingUpCorrect, IsOpeningDoorsCorrect, MultyRule
 from elevator.interfaces import DoorsStateHavingInterface, StageHavingInterface
 from elevator.state_map_builder import DefaultStateMapGenerator
 
@@ -55,9 +55,6 @@ def get_list_of_rules(list_of_rules: str, min_stage: int, max_stage: int):
     ioc.provide('Constants.Building.MinStage', min_stage)
 
     rules_names_interpritator = {
-        'IsMovingOnOnlyOneStage': IsMovingOnOnlyOneStage(),
-        'IsMovingWithClosedDoors': IsMovingWithClosedDoors(),
-        'IsDoorsClosed': IsDoorsClosed(),
         'IsMovingToAvailableStage': IsMovingToAvailableStage(),
         'IsMovingFromAvailableStage': IsMovingFromAvailableStage(),
         'BranchIsUniqueForStatesMap': BranchIsUniqueForStatesMap(),
@@ -135,7 +132,7 @@ def build_state_map(list_of_rules, max_stage, min_stage):
 # алгоритм рафт
 # векторное время
 # Лексли Лампорт
-
+# Ветки лампорта
 @then(
     parsers.cfparse(
         'been gotted states map:\n{expected_map:value}',

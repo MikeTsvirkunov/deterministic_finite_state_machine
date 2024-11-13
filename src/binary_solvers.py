@@ -2,16 +2,16 @@ from abc import ABCMeta, abstractmethod
 from typing import Callable, Dict
 
 
-class BinarySolverInterface(metaclass=ABCMeta):
+class BinarySolverInterface(metaclass=ABCMeta):  # pragma: no cover
 
     @property
     @abstractmethod
-    def binary_actions_map(self) -> Dict[bool, Callable]:
+    def binary_actions_map(self) -> Dict[bool, Callable]:  # pragma: no cover
         pass
 
 
     @abstractmethod
-    def __call__(self, boolean: bool) -> Callable:
+    def __call__(self, boolean: bool) -> Callable:  # pragma: no cover
         pass
 
 
@@ -22,7 +22,7 @@ class DefaultBinarySolver(BinarySolverInterface):
     
 
     @property
-    def binary_actions_map(self) -> Dict[bool, Callable]:
+    def binary_actions_map(self) -> Dict[bool, Callable]:  # pragma: no cover
         raise AttributeError('Not availablre value.')
     
 

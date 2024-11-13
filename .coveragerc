@@ -1,2 +1,2 @@
 [run]
-omit = ./tests/*,./src/interfaces/*
+omit = ./tests/*,./src/interfaces/*,./src/elevator/interfaces.py,./src/dfsm/interfaces.py

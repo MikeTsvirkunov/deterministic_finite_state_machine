@@ -6,59 +6,6 @@ from elevator.additional_types import DoorsStates, ElevatorCommands
 from elevator.interfaces import DoorsStateHavingInterface, StageHavingInterface
 
 
-class IsMovingWithClosedDoors(RuleInterface):
-
-    def __call__(self, *args, **kwargs) -> bool:
-        branch: BranchStateInterface = kwargs['branch']
-        doors_state_1: DoorsStateHavingInterface = branch.from_state
-        doors_state_2: DoorsStateHavingInterface = branch.to_state
-
-        stage_state_1: StageHavingInterface = branch.from_state
-        stage_state_2: StageHavingInterface = branch.to_state
-
-        is_moved = stage_state_1.stage != stage_state_2.stage
-        is_doors_closed_1 = doors_state_1.doors_state == DoorsStates.closed
-        is_doors_closed_2 = doors_state_2.doors_state == DoorsStates.closed
-        
-        return (
-            is_moved and is_doors_closed_1 and is_doors_closed_2
-        ) or (
-            (not is_moved) and is_doors_closed_1 and (not is_doors_closed_2)
-        ) or (
-            (not is_moved) and (not is_doors_closed_1) and is_doors_closed_2
-        ) or (
-            (not is_moved) and (not is_doors_closed_1) and (not is_doors_closed_2)
-        )
-
-
-class IsMovingOnOnlyOneStage(RuleInterface):
-
-    def __call__(self, *args, **kwargs) -> bool:
-        branch: BranchStateInterface = kwargs['branch']
-        stage_state_1: StageHavingInterface = branch.from_state
-        stage_state_2: StageHavingInterface = branch.to_state
-        return abs(stage_state_1.stage - stage_state_2.stage) <= 1
-
-
-class IsDoorsClosed(RuleInterface):
-
-    def __call__(self, *args, **kwargs) -> bool:
-        branch: BranchStateInterface = kwargs['branch']
-        branch_name: ElevatorCommands = branch.name
-        doors_state_1: DoorsStateHavingInterface = branch.from_state
-        doors_state_2: DoorsStateHavingInterface = branch.to_state
-        is_doors_closed_1 = doors_state_1.doors_state == DoorsStates.closed
-        is_doors_closed_2 = doors_state_2.doors_state == DoorsStates.closed
-        
-        return (
-            is_doors_closed_1 and is_doors_closed_2
-        ) or (
-            (not is_doors_closed_1) and is_doors_closed_2
-        ) or (
-            is_doors_closed_1 and (not is_doors_closed_2)
-        )
-
-
 class IsClosingDoorsCorrect(RuleInterface):
     
     def __call__(self, *args, **kwargs) -> bool:
