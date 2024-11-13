@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import Enum, Flag
 
 
 class Direction(int, Enum):
@@ -7,7 +7,7 @@ class Direction(int, Enum):
     stop: int = 0
 
 
-class DoorsStates(bool, Enum):
+class DoorsStates(Flag):
     opened: bool = True
     closed: bool = False
 

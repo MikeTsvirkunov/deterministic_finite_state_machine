@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-from typing import Any, Iterable
+from typing import Any, Collection, Iterable
 
 
 class StateInterface(metaclass=ABCMeta):
@@ -36,7 +36,7 @@ class StateMapInterface(metaclass=ABCMeta):
     
     @property
     @abstractmethod
-    def states_map(self) -> Iterable[BranchStateInterface]:
+    def states_map(self) -> Collection[BranchStateInterface]:
         pass
 
 
@@ -52,14 +52,6 @@ class RuleInterface(metaclass=ABCMeta):
         pass
 
 
-class RulesHavingInterface(metaclass=ABCMeta):
-    
-    @property
-    @abstractmethod
-    def rules(self) -> Iterable[RuleInterface]:
-        pass
-
-
 class CorrectHavingInterface(metaclass=ABCMeta):
     
     @property
@@ -67,3 +59,18 @@ class CorrectHavingInterface(metaclass=ABCMeta):
     def is_correct(self) -> bool:
         pass
 
+
+class ExtendableInterface(metaclass=ABCMeta):
+    
+    @abstractmethod
+    def extend(self, value: Any) -> None:
+        pass
+
+
+class ValidatorInterface(metaclass=ABCMeta):
+    
+    @abstractmethod
+    def validate(self, *args, **kwargs) -> Any:
+        pass
+
+    

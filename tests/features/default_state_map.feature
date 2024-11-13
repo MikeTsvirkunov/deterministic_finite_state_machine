@@ -13,7 +13,7 @@ Feature: testing default state map
 
 
     Scenario: Getting next state
-        Given some set of branches.
+        Given some set of not dublicated branches.
         And some alpha states branch in this set.
         Given default state map.
         When try get next state for alpha state.

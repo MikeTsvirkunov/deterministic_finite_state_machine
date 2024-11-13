@@ -1,12 +1,23 @@
-from typing import Callable
-from dfsm.interfaces import StateRuleInterface, RulesHavingInterface, StateInterface
+from typing import Collection
+from dfsm.interfaces import BranchStateInterface, RuleInterface
 
 
-class MultyRule(StateRuleInterface, RulesHavingInterface):
+class StateMapContainNoDublicates(RuleInterface):
 
-    def __init__(self, rules, aggregation_function: Callable = all):
-        self.rules = rules
-        self.aggregation_function = aggregation_function
-    
-    def __call__(self, state: StateInterface) -> bool:
-        return self.aggregation_function(map(lambda f: f(state), self.rules))
+    def __call__(self, *args, **kwargs):
+        states_map: Collection[BranchStateInterface] = kwargs['states_map']
+        # return all([branch_i != branch_j for i, branch_i in enumerate(states_map[:-1]) for branch_j in states_map[i+1:]])
+        for i, branch_i in enumerate(states_map[:-1]):
+            for branch_j in states_map[i+1:]:
+                a, b = branch_i.__hash__(), branch_j.__hash__()
+                if branch_i == branch_j:
+                    return False
+        return True
+
+
+class AddingUniqBranch(RuleInterface):
+
+    def __call__(self, *args, **kwargs):
+        states_map: Collection[BranchStateInterface] = kwargs['states_map']
+        new_branch: BranchStateInterface = kwargs['new_branch']
+        return new_branch in states_map
