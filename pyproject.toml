@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Цвиркунов Михаил <tsvirkunov@profilum.ru>"]
 readme = "README.md"
+packages = [{include = "src"}]
 
 
 [tool.poetry.dependencies]
@@ -31,9 +32,8 @@ minversion = "6.0"
 addopts = "-ra -q"
 testpaths = [
     "tests",
-    "src"
 ]
-pythonpath = "src"
+# pythonpath = "src"
 bdd_features_base_dir = "tests/features"
 
 # [tool.coverage.report]

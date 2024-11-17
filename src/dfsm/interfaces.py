@@ -73,4 +73,11 @@ class ValidatorInterface(metaclass=ABCMeta):
     def validate(self, *args, **kwargs) -> Any:
         pass
 
-    
+
+class StateHavingInterface(metaclass=ABCMeta):
+
+    @property
+    @abstractmethod
+    def state(self) -> StateInterface:
+        pass
+
