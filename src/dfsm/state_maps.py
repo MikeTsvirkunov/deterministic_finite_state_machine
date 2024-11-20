@@ -26,6 +26,10 @@ class DefaultStateMap(StateMapInterface):
 
 
     def next(self, branch_name: Any, state: StateInterface) -> StateInterface:
+        for a in self.states_map:
+            an = a.name
+            if (an == branch_name) and (state == a.from_state):
+                return a.to_state
         return next(iter(filter(
             lambda a: (a.name == branch_name) and (a.from_state == state), 
             self.states_map
