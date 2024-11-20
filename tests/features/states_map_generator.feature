@@ -4,13 +4,17 @@ Feature: testing state map generator
         Given that max stage is 3.
         And that min stage is 1.
         Given list of rules:
-            IsMovingToAvailableStage
-            IsMovingFromAvailableStage
-            BranchIsUniqueForStatesMap
-            IsClosingDoorsCorrect
-            IsOpeningDoorsCorrect
-            IsMovingUpCorrect
-            IsMovingDownCorrect
+            |      cmd      | is doors opened 1 | is doors opened 2 | is moved up | is moved down | is min stage estimate | is max stage estimate | stage delta |
+            |  close_doors  |         1         |          0        |      0      |       0       |           1           |            0          |      0      |
+            |  close_doors  |         1         |          0        |      0      |       0       |           0           |            1          |      0      |
+            |  close_doors  |         1         |          0        |      0      |       0       |           0           |            0          |      0      |
+            |  open_doors   |         0         |          1        |      0      |       0       |           1           |            0          |      0      |
+            |  open_doors   |         0         |          1        |      0      |       0       |           0           |            1          |      0      |
+            |  open_doors   |         0         |          1        |      0      |       0       |           0           |            0          |      0      |
+            |  move_up      |         0         |          0        |      1      |       0       |           1           |            0          |      1      |
+            |  move_up      |         0         |          0        |      1      |       0       |           0           |            0          |      1      |
+            |  move_down    |         0         |          0        |      0      |       1       |           0           |            1          |      1      |
+            |  move_down    |         0         |          0        |      0      |       1       |           0           |            0          |      1      |
         When building states map by this rules.
         Then been gotted states map:
             |    COMMAND    | 1ST STAGE | 1ST DOORS STATE | 2ND STAGE | 2ND DOORS STATE |

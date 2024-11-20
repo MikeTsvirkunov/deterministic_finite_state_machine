@@ -36,7 +36,6 @@ class DirectionHavingInterface(metaclass=ABCMeta):
         pass
 
 
-
 class ElevatorCommandHavingInterface(metaclass=ABCMeta):
 
     @property

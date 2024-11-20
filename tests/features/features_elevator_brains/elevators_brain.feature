@@ -17,13 +17,17 @@ Feature: testing state map generator
                 }
             ]
         Given elevator state map builded by this rules:
-            IsMovingToAvailableStage
-            IsMovingFromAvailableStage
-            BranchIsUniqueForStatesMap
-            IsClosingDoorsCorrect
-            IsOpeningDoorsCorrect
-            IsMovingUpCorrect
-            IsMovingDownCorrect
+            |      cmd      | is doors opened 1 | is doors opened 2 | is moved up | is moved down | is min stage estimate | is max stage estimate | stage delta |
+            |  close_doors  |         1         |          0        |      0      |       0       |           1           |            0          |      0      |
+            |  close_doors  |         1         |          0        |      0      |       0       |           0           |            1          |      0      |
+            |  close_doors  |         1         |          0        |      0      |       0       |           0           |            0          |      0      |
+            |  open_doors   |         0         |          1        |      0      |       0       |           1           |            0          |      0      |
+            |  open_doors   |         0         |          1        |      0      |       0       |           0           |            1          |      0      |
+            |  open_doors   |         0         |          1        |      0      |       0       |           0           |            0          |      0      |
+            |  move_up      |         0         |          0        |      1      |       0       |           1           |            0          |      1      |
+            |  move_up      |         0         |          0        |      1      |       0       |           0           |            0          |      1      |
+            |  move_down    |         0         |          0        |      0      |       1       |           0           |            1          |      1      |
+            |  move_down    |         0         |          0        |      0      |       1       |           0           |            0          |      1      |
         Given first elevator:
             {
                 "stage": 1,

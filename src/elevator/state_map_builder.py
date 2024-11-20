@@ -5,6 +5,7 @@ from dfsm.interfaces import BranchStateInterface, RuleInterface, StateInterface,
 from itertools import product
 
 from elevator.additional_types import DoorsStates, ElevatorCommands
+from oh_solver.interfaces import ActionHavingInterface
 
 
 class DefaultStateMapGenerator:
@@ -14,8 +15,8 @@ class DefaultStateMapGenerator:
         branch_builder: Callable[[ElevatorCommands, StateInterface, StateInterface], BranchStateInterface] = ioc.require('Builders.ElevatorBranchState.Builder.Default')
         states_map_builder: Callable[[Collection[BranchStateInterface]], StateMapInterface] = ioc.require('Builders.StatesMap.Default')
         states_map: Collection[BranchStateInterface] = ioc.require('Values.Get.Collection')()
-        rule_for_branch: RuleInterface = ioc.require('Rules.BranchRule')
-        validate_append: BinarySolverInterface = ioc.require('Validators.InsertCorrectBranch')
+        rule_for_branch: StateMapInterface = ioc.require('Rules.BranchRuleStateMap')
+        build_rull_state = ioc.require('Actions.BuildRullState')
 
         for (
             branch_name, 
@@ -34,7 +35,8 @@ class DefaultStateMapGenerator:
             to_state: StateInterface = state_builder(stage=stage_2, doors_state=doors_state_2)
             branch: BranchStateInterface = branch_builder(branch_name=branch_name, from_state=from_state, to_state=to_state)
             # рефлексирующие программные системы
-            res: bool = rule_for_branch(branch=branch, states_map=states_map)
-            valid_action: Callable = validate_append(res)
-            valid_action(states_map, branch)
+            rull_state = build_rull_state(branch)
+            res: ActionHavingInterface | StateInterface = rule_for_branch.next(None, rull_state)
+            a = res.__str__()
+            res.action(states_map, branch)
         return states_map_builder(states_map=states_map)
