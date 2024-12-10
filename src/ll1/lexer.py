@@ -1,6 +1,4 @@
 import re
-
-import ioc
 from src.ll1.constants import TOKENS_DICT
 
 
@@ -17,16 +15,19 @@ class Lexer:
     
 
     def tokenize(self):
-        self.symbol = str(ioc.require('LL1_GRAMMAR.globals.symbol'))
         self.symbol = re.sub(r'\s+', '', self.symbol)
         token_regex = '|'.join(f'(?P<{key}>{value})' for key, value in TOKENS_DICT.items())
         position = 0
         while position < len(self.symbol):
             ss = self.symbol[position:]
             match = re.match(token_regex, ss)
-            kind = match.lastgroup
-            value = match.group()
-            Lexer.tokens.append(kind)
-            position += len(value)
+            if match:
+                kind = match.lastgroup
+                value = match.group()
+                if kind:
+                    Lexer.tokens.append(kind)
+                position += len(value)
+            else:
+                raise ValueError(f"Ошибка: не найдено ни одного токена в строке. Необработанный символ: '{self.symbol[position]}'")
+        
         Lexer.tokens.append('END')
-    

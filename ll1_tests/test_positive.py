@@ -40,6 +40,7 @@ def initiation():
 
 @pytest.fixture
 def setup_parser():
+    Lexer.tokens = list()
     transitions = pd.read_csv('./data/processsed_lexer_table.csv', index_col=0)
     state_classes: Dict[
         Tuple[int, int, int, int], ApplyStrategyInterface

@@ -40,6 +40,7 @@ def initiation():
 
 @pytest.fixture
 def setup_parser():
+    Lexer.tokens = list()
     transitions = pd.read_csv('./data/processsed_lexer_table.csv', index_col=0)
     state_classes: Dict[
         Tuple[int, int, int, int], ApplyStrategyInterface
@@ -56,13 +57,11 @@ def setup_parser():
 
 
 @pytest.mark.parametrize("row", [
-    # """D""",
-    "D()",
-    """D(1,2)""",
-    """D(D(1),k(true))""",
-    "+(1, 2)",
-    "!(1)",
-    "1"
+    "D(",
+    "D)",
+    "1)",
+    "!(1,2,3)",
+    "+(1,)",
 ])
 def test_bad_grammar(setup_parser, row):
     f = False
