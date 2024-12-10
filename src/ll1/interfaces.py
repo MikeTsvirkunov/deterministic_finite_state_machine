@@ -26,7 +26,7 @@ class FollowingSymbolsHavingInterface(metaclass=ABCMeta):
         pass
 
 
-class ApplyStrategyHavingInterface(metaclass=ABCMeta):
+class ApplyStrategyInterface(metaclass=ABCMeta):
 
     @staticmethod
     @abstractmethod
@@ -38,5 +38,5 @@ class ApplyStrategyHavingInterface(metaclass=ABCMeta):
     
     @property
     @abstractmethod
-    def apply(self) -> ApplyStrategyHavingInterface:
+    def apply(self) -> ApplyStrategyInterface:
         pass

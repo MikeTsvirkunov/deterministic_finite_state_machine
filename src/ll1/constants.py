@@ -5,8 +5,8 @@ TOKENS_DICT = {
     # Eps
     'eps': r'eps',
     # Arg
-    'FUNCTION_NAME': r'[a-zA-Z][a-zA-Z0-9]*',
     'BOOL': r'(true|false)+',
+    'FUNCTION_NAME': r'[a-zA-Z][a-zA-Z0-9]*',
     'NUMERIC': r'[0-9]+',
     'SEPARATOR': r'\,',
     # Brackets
