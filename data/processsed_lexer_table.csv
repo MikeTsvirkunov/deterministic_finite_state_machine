@@ -1,0 +1,102 @@
+FROM,ACCEPT,STACK,ERROR,RETURN,NEXT,FOLLOW_SYMBOLS
+1,False,False,True,False,34,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+2,False,False,False,False,35,"['NUMERIC', 'BOOL']"
+3,False,False,False,False,36,['if']
+4,False,False,False,False,38,['foreach']
+5,False,False,False,False,40,['equal']
+6,False,False,False,False,42,['BEQUAL']
+7,False,False,False,False,44,['LARGER']
+8,False,False,False,False,46,['BIGGER']
+9,False,False,False,False,48,['AND']
+10,False,False,False,False,50,['OR']
+11,False,False,False,False,52,['NOT']
+12,False,False,False,False,54,['DELTA']
+13,False,False,False,False,56,['SUM']
+14,False,False,False,False,58,['REMUT']
+15,False,False,False,False,60,['MUT']
+16,False,False,False,False,62,['resolve']
+17,False,False,True,False,64,['FUNCTION_NAME']
+18,False,False,False,False,66,['LPAR']
+19,False,False,True,False,69,"['SEPARATOR', 'RPAR']"
+20,False,False,False,False,70,['LPAR']
+21,False,False,True,False,75,"['SEPARATOR', 'RPAR']"
+22,False,False,False,False,76,['LPAR']
+23,False,False,True,False,83,"['SEPARATOR', 'RPAR']"
+24,False,False,False,False,84,['LPAR']
+25,False,False,True,False,89,"['SEPARATOR', 'RPAR']"
+26,False,False,False,False,90,['LPAR']
+27,False,False,True,False,92,"['SEPARATOR', 'RPAR']"
+28,False,False,False,False,93,['RPAR']
+29,False,False,True,False,94,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+30,False,False,False,False,96,['RPAR']
+31,False,False,True,False,97,['SEPARATOR']
+32,False,False,False,False,100,['NUMERIC']
+33,False,False,True,False,101,['BOOL']
+34,False,False,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+35,False,False,True,False,32,"['NUMERIC', 'BOOL']"
+36,True,False,True,False,37,['if']
+37,False,False,True,False,22,"['LPAR', 'eps']"
+38,True,False,True,False,39,['foreach']
+39,False,False,True,False,20,"['LPAR', 'eps']"
+40,True,False,True,False,41,['equal']
+41,False,False,True,False,20,"['LPAR', 'eps']"
+42,True,False,True,False,43,['BEQUAL']
+43,False,False,True,False,20,"['LPAR', 'eps']"
+44,True,False,True,False,45,['LARGER']
+45,False,False,True,False,20,"['LPAR', 'eps']"
+46,True,False,True,False,47,['BIGGER']
+47,False,False,True,False,20,"['LPAR', 'eps']"
+48,True,False,True,False,49,['AND']
+49,False,False,True,False,20,"['LPAR', 'eps']"
+50,True,False,True,False,51,['OR']
+51,False,False,True,False,20,"['LPAR', 'eps']"
+52,True,False,True,False,53,['NOT']
+53,False,False,True,False,18,"['LPAR', 'eps']"
+54,True,False,True,False,55,['DELTA']
+55,False,False,True,False,20,"['LPAR', 'eps']"
+56,True,False,True,False,57,['SUM']
+57,False,False,True,False,20,"['LPAR', 'eps']"
+58,True,False,True,False,59,['REMUT']
+59,False,False,True,False,20,"['LPAR', 'eps']"
+60,True,False,True,False,61,['MUT']
+61,False,False,True,False,20,"['LPAR', 'eps']"
+62,True,False,True,False,63,['resolve']
+63,False,False,True,False,24,"['LPAR', 'eps']"
+64,True,False,True,False,65,['FUNCTION_NAME']
+65,False,False,True,False,26,"['LPAR', 'eps']"
+66,True,False,True,False,67,['LPAR']
+67,False,True,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+68,True,False,True,True,69,['RPAR']
+69,False,False,True,True,,"['SEPARATOR', 'RPAR']"
+70,True,False,True,False,71,['LPAR']
+71,False,True,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+72,True,False,True,False,73,['SEPARATOR']
+73,False,True,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+74,True,False,True,True,75,['RPAR']
+75,False,False,True,True,,"['SEPARATOR', 'RPAR']"
+76,True,False,True,False,77,['LPAR']
+77,False,True,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+78,True,False,True,False,79,['SEPARATOR']
+79,False,True,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+80,True,False,True,False,81,['SEPARATOR']
+81,False,True,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+82,True,False,True,True,83,['RPAR']
+83,False,False,True,True,,"['SEPARATOR', 'RPAR']"
+84,True,False,True,False,85,['LPAR']
+85,True,False,True,False,86,['FUNCTION_NAME']
+86,True,False,True,False,87,['SEPARATOR']
+87,False,True,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+88,True,False,True,True,89,['RPAR']
+89,False,False,True,True,,"['SEPARATOR', 'RPAR']"
+90,True,False,True,False,91,['LPAR']
+91,False,False,True,False,28,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT', 'eps', 'RPAR', 'SEPARATOR']"
+92,False,False,True,True,,"['SEPARATOR', 'RPAR']"
+93,True,False,True,True,,['RPAR']
+94,False,True,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+95,False,False,True,False,30,"['eps', 'SEPARATOR', 'RPAR']"
+96,True,False,True,True,,['RPAR']
+97,True,False,True,False,98,['SEPARATOR']
+98,False,True,True,False,2,"['FUNCTION_NAME', 'NUMERIC', 'BOOL', 'if', 'foreach', 'equal', 'resolve', 'SUM', 'DELTA', 'BEQUAL', 'LARGER', 'BIGGER', 'OR', 'AND', 'NOT', 'REMUT', 'MUT']"
+99,False,False,True,False,30,"['eps', 'SEPARATOR', 'RPAR']"
+100,True,False,True,True,,['NUMERIC']
+101,True,False,True,True,,['BOOL']

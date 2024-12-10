@@ -1,5 +1,5 @@
 from typing import Collection
-from dfsm.interfaces import BranchStateInterface, RuleInterface
+from src.dfsm.interfaces import BranchStateInterface, RuleInterface
 
 
 class StateMapContainNoDublicates(RuleInterface):

@@ -1,7 +1,7 @@
 import ioc
 from typing import Any, Callable, Collection
-from binary_solvers import BinarySolverInterface
-from dfsm.interfaces import (
+from src.binary_solvers import BinarySolverInterface
+from src.dfsm.interfaces import (
     BranchStateInterface,
     RuleInterface, 
     StateInterface, 

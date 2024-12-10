@@ -1,7 +1,7 @@
 import ioc
-from actions import empty_action, throw_exception
-from binary_solvers import DefaultBinarySolver
-from dfsm.rules import AddingUniqBranch, StateMapContainNoDublicates
+from src.actions import empty_action, throw_exception
+from src.binary_solvers import DefaultBinarySolver
+from src.dfsm.rules import AddingUniqBranch, StateMapContainNoDublicates
 
 
 def rules_providing():
