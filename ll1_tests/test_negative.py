@@ -64,39 +64,42 @@ def setup_parser():
     "!(1)",
     "1"
 ])
-def test_state_transition_positive(setup_parser, row):
-    initiation()
-    current_state_idx = 1
-    transitions, state_classes = setup_parser
-    list_direct = get_follow_symbols_from_table(transitions, current_state_idx)
-    ioc.override('LL1_GRAMMAR.globals.symbol', row)
-    lexer = Lexer(list_direct, row)
-    lexer.tokenize()
-    ioc.override('LL1_GRAMMAR.globals.tokens', lexer.tokens)
-    token_list = lexer.tokens
-    ioc.override('LL1_GRAMMAR.globals.token', token_list[0])
-    state_key = get_state_vector_from_table(
-        transitions, current_state_idx
-    )
-    next_state_idx = get_next_idx_from_table(
-        transitions, current_state_idx
-    )
-    initial_state = state_classes[state_key]
-    current_state = initial_state
-    ioc.override('LL1_GRAMMAR.globals.list_direct', lexer.list_direct)
-    token = str(ioc.require("LL1_GRAMMAR.globals.token"))
-    while True:
-        current_state_idx = current_state(current_state_idx, next_state_idx)
-        token = ioc.require("LL1_GRAMMAR.globals.token")
-        if token == 'END' and current_state_idx == 'S':
-            break
-        current_symbols = get_follow_symbols_from_table(transitions, current_state_idx)
-        ioc.override('LL1_GRAMMAR.globals.list_direct', current_symbols)
-        state_key = get_state_vector_from_table(transitions, current_state_idx)
-        next_state_idx = get_next_idx_from_table(transitions, current_state_idx)
-        current_state = state_classes[state_key]
+def test_bad_grammar(setup_parser, row):
+    f = False
+    try:
+        initiation()
+        current_state_idx = 1
+        transitions, state_classes = setup_parser
+        list_direct = get_follow_symbols_from_table(transitions, current_state_idx)
+        ioc.override('LL1_GRAMMAR.globals.symbol', row)
+        lexer = Lexer(list_direct, row)
+        lexer.tokenize()
+        ioc.override('LL1_GRAMMAR.globals.tokens', lexer.tokens)
+        token_list = lexer.tokens
+        ioc.override('LL1_GRAMMAR.globals.token', token_list[0])
+        state_key = get_state_vector_from_table(
+            transitions, current_state_idx
+        )
+        next_state_idx = get_next_idx_from_table(
+            transitions, current_state_idx
+        )
+        initial_state = state_classes[state_key]
+        current_state = initial_state
+        ioc.override('LL1_GRAMMAR.globals.list_direct', lexer.list_direct)
         token = str(ioc.require("LL1_GRAMMAR.globals.token"))
-    token = ioc.require("LL1_GRAMMAR.globals.token")
-    stack = ioc.require("LL1_GRAMMAR.globals.stack")
-    assert len(stack) == 0
-    assert token == "END"
+        while True:
+            current_state_idx = current_state(current_state_idx, next_state_idx)
+            token = ioc.require("LL1_GRAMMAR.globals.token")
+            if token == 'END' and current_state_idx == 'S':
+                break
+            current_symbols = get_follow_symbols_from_table(transitions, current_state_idx)
+            ioc.override('LL1_GRAMMAR.globals.list_direct', current_symbols)
+            state_key = get_state_vector_from_table(transitions, current_state_idx)
+            next_state_idx = get_next_idx_from_table(transitions, current_state_idx)
+            current_state = state_classes[state_key]
+            token = str(ioc.require("LL1_GRAMMAR.globals.token"))
+        token = ioc.require("LL1_GRAMMAR.globals.token")
+        stack = ioc.require("LL1_GRAMMAR.globals.stack")
+    except:
+        f = True
+    assert f
