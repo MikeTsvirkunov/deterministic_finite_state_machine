@@ -21,13 +21,8 @@ class Lexer:
         while position < len(self.symbol):
             ss = self.symbol[position:]
             match = re.match(token_regex, ss)
-            if match:
-                kind = match.lastgroup
-                value = match.group()
-                if kind:
-                    Lexer.tokens.append(kind)
-                position += len(value)
-            else:
-                raise ValueError(f"Ошибка: не найдено ни одного токена в строке. Необработанный символ: '{self.symbol[position]}'")
-        
+            kind = match.lastgroup
+            value = match.group()
+            Lexer.tokens.append(kind)
+            position += len(value)
         Lexer.tokens.append('END')
