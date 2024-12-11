@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Цвиркунов Михаил <tsvirkunov@profilum.ru>"]
 readme = "README.md"
+packages = [{include = "src"}]
 
 
 [tool.poetry.dependencies]
@@ -19,7 +20,11 @@ behave = "^1.2.6"
 polars = "^1.9.0"
 coverage = "^7.6.3"
 python-ioc = "^1.13.0"
+pandas = "^2.2.3"
 
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
 
 [build-system]
 requires = ["poetry-core"]
@@ -31,9 +36,8 @@ minversion = "6.0"
 addopts = "-ra -q"
 testpaths = [
     "tests",
-    "src"
 ]
-pythonpath = "src"
+# pythonpath = "src"
 bdd_features_base_dir = "tests/features"
 
 # [tool.coverage.report]
